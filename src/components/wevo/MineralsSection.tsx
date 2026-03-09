@@ -18,45 +18,80 @@ const minerals = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 const MineralsSection = () => {
   return (
-    <section id="minerals" className="wevo-section bg-wevo-navy">
-      <div className="max-w-7xl mx-auto">
+    <section id="minerals" className="wevo-section bg-wevo-navy relative overflow-hidden">
+      {/* Subtle radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-wevo-ice/5 rounded-full blur-[150px]" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
+          viewport={{ once: true, margin: "-80px" }}
+          className="text-center mb-24"
         >
-          <p className="wevo-label text-wevo-glacier mb-4">The Science</p>
+          <p className="wevo-label text-wevo-ice mb-4">The Science</p>
           <h2 className="wevo-heading-lg text-wevo-snow">
             Purest water bottled with<br />optimum minerals
           </h2>
-          <p className="wevo-body text-wevo-stone mt-6 max-w-xl mx-auto">
+          <p className="wevo-body text-wevo-glacier/60 mt-6 max-w-xl mx-auto">
             Nature's filtration delivers the perfect mineral balance in every bottle.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-          {minerals.map((mineral, i) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8"
+        >
+          {minerals.map((mineral) => (
             <motion.div
               key={mineral.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: i * 0.15 }}
-              viewport={{ once: true }}
-              className="text-center"
+              variants={itemVariants}
+              className="text-center group"
             >
-              <div className="wevo-divider mx-auto mb-6 bg-wevo-ice" />
-              <p className="wevo-label text-wevo-ice mb-4">{mineral.label}</p>
-              <p className="wevo-stat-number text-wevo-snow mb-4">{mineral.value}</p>
-              <p className="wevo-body text-wevo-glacier/70 max-w-xs mx-auto text-sm">
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="w-12 h-px bg-wevo-ice/40 mx-auto mb-8 group-hover:bg-wevo-ice group-hover:w-20 transition-all duration-500"
+              />
+              <p className="wevo-label text-wevo-ice mb-6">{mineral.label}</p>
+              <motion.p
+                className="font-display text-6xl md:text-7xl font-light text-wevo-snow mb-6"
+                whileInView={{ scale: [0.9, 1] }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                {mineral.value}
+              </motion.p>
+              <p className="font-body text-sm text-wevo-glacier/50 max-w-[280px] mx-auto leading-relaxed">
                 {mineral.description}
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

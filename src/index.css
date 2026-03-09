@@ -66,16 +66,23 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
   }
+
+  ::selection {
+    background: hsl(200 60% 45% / 0.2);
+    color: hsl(210 30% 8%);
+  }
 }
 
 @layer components {
   .wevo-section {
-    @apply py-20 md:py-32 px-6 md:px-12 lg:px-20;
+    @apply py-24 md:py-36 px-6 md:px-12 lg:px-20;
   }
 
   .wevo-heading-xl {
@@ -110,22 +117,57 @@
 
   .wevo-button {
     font-family: var(--font-body);
-    @apply inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-[0.15em] font-medium 
-           bg-primary text-primary-foreground hover:bg-accent transition-all duration-500 ease-out;
+    @apply inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium 
+           bg-primary text-primary-foreground transition-all duration-500 ease-out;
+  }
+
+  .wevo-button:hover {
+    @apply bg-accent shadow-lg;
+    box-shadow: 0 10px 40px -10px hsl(200 60% 45% / 0.3);
   }
 
   .wevo-button-outline {
     font-family: var(--font-body);
-    @apply inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-[0.15em] font-medium 
+    @apply inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium 
            border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-500 ease-out;
   }
 
-  .wevo-divider {
-    @apply w-12 h-px bg-accent;
+  /* Underline link animation */
+  .story-link span {
+    @apply relative inline-block;
+  }
+  .story-link span::after {
+    content: '';
+    @apply absolute w-full h-px bottom-0 left-0 bg-foreground origin-bottom-right transition-transform duration-300 scale-x-0;
+  }
+  .story-link:hover span::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+
+  /* Hover scale */
+  .hover-scale {
+    @apply transition-transform duration-300;
+  }
+  .hover-scale:hover {
+    transform: scale(1.03);
   }
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(210 20% 98%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(210 10% 75%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(200 60% 45%);
 }
