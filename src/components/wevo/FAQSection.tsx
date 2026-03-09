@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import {
   Accordion,
@@ -29,47 +30,66 @@ const faqs = [
   },
 ];
 
-const FAQSection = () => {
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const FAQSection = forwardRef<HTMLElement>((_, ref) => {
   return (
-    <section id="faq" className="wevo-section bg-secondary">
+    <section ref={ref} id="faq" className="wevo-section bg-secondary">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-16"
         >
-          <p className="wevo-label text-muted-foreground mb-4">Support</p>
+          <p className="wevo-label text-wevo-ice mb-4">Support</p>
           <h2 className="wevo-heading-lg text-foreground">Frequently Asked</h2>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
         >
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, i) => (
-              <AccordionItem
-                key={i}
-                value={`item-${i}`}
-                className="border border-border bg-card px-6 rounded-none"
-              >
-                <AccordionTrigger className="font-display text-lg md:text-xl font-normal hover:no-underline text-foreground">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="wevo-body text-muted-foreground text-sm pb-6">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+              <motion.div key={i} variants={itemVariants}>
+                <AccordionItem
+                  value={`item-${i}`}
+                  className="border border-border bg-card px-6 rounded-none hover:border-wevo-ice/30 transition-colors duration-500"
+                >
+                  <AccordionTrigger className="font-display text-lg md:text-xl font-normal hover:no-underline text-foreground py-6">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="font-body text-muted-foreground text-sm pb-6 leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
         </motion.div>
       </div>
     </section>
   );
-};
+});
+
+FAQSection.displayName = "FAQSection";
 
 export default FAQSection;

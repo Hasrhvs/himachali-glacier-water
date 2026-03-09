@@ -19,6 +19,22 @@ const benefits = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.2, delayChildren: 0.2 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 const WhyWevoSection = () => {
   return (
     <section id="why-wevo" className="wevo-section bg-background">
@@ -26,37 +42,41 @@ const WhyWevoSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-20"
         >
-          <p className="wevo-label text-muted-foreground mb-4">Benefits</p>
+          <p className="wevo-label text-wevo-ice mb-4">Benefits</p>
           <h2 className="wevo-heading-lg text-foreground">Why WEVO?</h2>
           <p className="wevo-body text-muted-foreground mt-4 max-w-lg mx-auto">
             More than hydration — it's a lifestyle upgrade backed by nature.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {benefits.map((benefit, i) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-12"
+        >
+          {benefits.map((benefit) => (
             <motion.div
               key={benefit.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: i * 0.15 }}
-              viewport={{ once: true }}
-              className="text-center group"
+              variants={cardVariants}
+              whileHover={{ y: -6, transition: { duration: 0.3 } }}
+              className="text-center group cursor-default"
             >
-              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center border border-border group-hover:border-accent group-hover:bg-accent/10 transition-all duration-500 rounded-full">
-                <benefit.icon className="w-7 h-7 text-muted-foreground group-hover:text-accent transition-colors duration-500" />
+              <div className="w-20 h-20 mx-auto mb-8 flex items-center justify-center border border-border group-hover:border-wevo-ice group-hover:bg-wevo-ice/10 transition-all duration-500 rounded-full group-hover:shadow-lg group-hover:shadow-wevo-ice/10">
+                <benefit.icon className="w-8 h-8 text-muted-foreground group-hover:text-wevo-ice transition-colors duration-500" strokeWidth={1.5} />
               </div>
               <h3 className="wevo-heading-md text-foreground mb-4">{benefit.title}</h3>
-              <p className="wevo-body text-muted-foreground max-w-sm mx-auto text-sm">
+              <p className="wevo-body text-muted-foreground max-w-sm mx-auto text-sm leading-relaxed">
                 {benefit.description}
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
