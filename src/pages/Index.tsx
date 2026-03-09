@@ -1,12 +1,25 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/wevo/Navbar";
+import HeroSection from "@/components/wevo/HeroSection";
+import QuoteSection from "@/components/wevo/QuoteSection";
+import ProductsSection from "@/components/wevo/ProductsSection";
+import MineralsSection from "@/components/wevo/MineralsSection";
+import GlacialBanner from "@/components/wevo/GlacialBanner";
+import WhyWevoSection from "@/components/wevo/WhyWevoSection";
+import FAQSection from "@/components/wevo/FAQSection";
+import Footer from "@/components/wevo/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <HeroSection />
+      <QuoteSection />
+      <ProductsSection />
+      <MineralsSection />
+      <GlacialBanner />
+      <WhyWevoSection />
+      <FAQSection />
+      <Footer />
     </div>
   );
 };
