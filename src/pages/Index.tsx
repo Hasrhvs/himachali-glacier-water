@@ -26,6 +26,7 @@ const Index = () => {
       <MarqueeTicker />
       <MineralsSection />
       <GlacialBanner />
+      <OurStorySection />
       <WhyWevoSection />
       <FAQSection />
       <Footer />
