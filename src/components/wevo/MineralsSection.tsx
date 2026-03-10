@@ -1,22 +1,5 @@
 import { motion } from "framer-motion";
-
-const minerals = [
-  {
-    label: "Calcium",
-    value: "5%",
-    description: "5% of the recommended daily intake of CALCIUM in one litre of WEVO water.",
-  },
-  {
-    label: "TDS",
-    value: "256",
-    description: "Total Dissolved Solids of 256, which is ideal for good health and taste.",
-  },
-  {
-    label: "pH",
-    value: "7.1–7.9",
-    description: "Optimum pH value makes WEVO water alkaline and supports overall health and gut health.",
-  },
-];
+import { useCountUp } from "@/hooks/useCountUp";
 
 const containerVariants = {
   hidden: {},
@@ -34,10 +17,46 @@ const itemVariants = {
   },
 };
 
+const CalciumStat = () => {
+  const { ref, display } = useCountUp({ end: 5, duration: 2000, decimals: 0, suffix: "%" });
+  return <span ref={ref as React.RefObject<HTMLSpanElement>}>{display}</span>;
+};
+
+const TDSStat = () => {
+  const { ref, display } = useCountUp({ end: 256, duration: 2200, decimals: 0 });
+  return <span ref={ref as React.RefObject<HTMLSpanElement>}>{display}</span>;
+};
+
+const PHStat = () => {
+  const { ref, display, hasStarted } = useCountUp({ end: 7.9, duration: 2000, decimals: 1 });
+  return (
+    <span ref={ref as React.RefObject<HTMLSpanElement>}>
+      {hasStarted ? `7.1–${display}` : "0.0"}
+    </span>
+  );
+};
+
+const minerals = [
+  {
+    label: "Calcium",
+    Stat: CalciumStat,
+    description: "5% of the recommended daily intake of CALCIUM in one litre of WEVO water.",
+  },
+  {
+    label: "TDS",
+    Stat: TDSStat,
+    description: "Total Dissolved Solids of 256, which is ideal for good health and taste.",
+  },
+  {
+    label: "pH",
+    Stat: PHStat,
+    description: "Optimum pH value makes WEVO water alkaline and supports overall health and gut health.",
+  },
+];
+
 const MineralsSection = () => {
   return (
     <section id="minerals" className="wevo-section bg-wevo-navy relative overflow-hidden">
-      {/* Subtle radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-wevo-ice/5 rounded-full blur-[150px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -78,14 +97,9 @@ const MineralsSection = () => {
                 className="w-12 h-px bg-wevo-ice/40 mx-auto mb-8 group-hover:bg-wevo-ice group-hover:w-20 transition-all duration-500"
               />
               <p className="wevo-label text-wevo-ice mb-6">{mineral.label}</p>
-              <motion.p
-                className="font-display text-6xl md:text-7xl font-light text-wevo-snow mb-6"
-                whileInView={{ scale: [0.9, 1] }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                {mineral.value}
-              </motion.p>
+              <p className="font-display text-6xl md:text-7xl font-light text-wevo-snow mb-6 tabular-nums">
+                <mineral.Stat />
+              </p>
               <p className="font-body text-sm text-wevo-glacier/50 max-w-[280px] mx-auto leading-relaxed">
                 {mineral.description}
               </p>
