@@ -9,6 +9,7 @@ import WhyWevoSection from "@/components/wevo/WhyWevoSection";
 import FAQSection from "@/components/wevo/FAQSection";
 import Footer from "@/components/wevo/Footer";
 import SplashScreen from "@/components/wevo/SplashScreen";
+import MarqueeTicker from "@/components/wevo/MarqueeTicker";
 
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -21,6 +22,7 @@ const Index = () => {
       <HeroSection />
       <QuoteSection />
       <ProductsSection />
+      <MarqueeTicker />
       <MineralsSection />
       <GlacialBanner />
       <WhyWevoSection />
