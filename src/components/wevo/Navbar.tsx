@@ -11,7 +11,7 @@ const Navbar = () => {
     return scrollY.on("change", (y) => setScrolled(y > 50));
   }, [scrollY]);
 
-  const links = ["Origin", "Products", "Minerals", "Why WEVO", "FAQ"];
+  const links = ["Origin", "Products", "Minerals", "Our Story", "Why WEVO", "FAQ"];
 
   return (
     <motion.nav
