@@ -58,7 +58,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         ))}
 
         {/* Logo: W E V + O (favicon) */}
-        <div className="relative z-10 flex items-center gap-1">
+        <div className="relative z-10 flex items-center gap-3 md:gap-4">
           {letters.map((l) => (
             <motion.span
               key={l.char}

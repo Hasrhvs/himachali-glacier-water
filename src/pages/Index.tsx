@@ -1,4 +1,5 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/wevo/Navbar";
 import HeroSection from "@/components/wevo/HeroSection";
 import BottleViewer from "@/components/wevo/BottleViewer";
@@ -12,6 +13,14 @@ import SplashScreen from "@/components/wevo/SplashScreen";
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
   const handleSplashComplete = useCallback(() => setShowSplash(false), []);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!showSplash && location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [showSplash, location.hash]);
 
   return (
     <div className="min-h-screen bg-background">

@@ -21,7 +21,7 @@ const BottleViewer = () => {
   return (
     <section className="wevo-section" style={{ backgroundColor: "#e1f2fa4d" }} id="explore">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-6 md:gap-12">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-4 md:gap-6">
           {/* Left Side - Features */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -42,7 +42,7 @@ const BottleViewer = () => {
                 <div className="w-14 h-14 flex-shrink-0 flex items-center justify-center border border-border group-hover:border-wevo-ice group-hover:bg-wevo-ice/10 transition-all duration-500 rounded-full">
                   <feature.icon className="w-6 h-6 text-muted-foreground group-hover:text-wevo-ice transition-colors duration-500" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">{feature.title}</h3>
+                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">{feature.title}</h3>
               </motion.div>
             ))}
           </motion.div>
