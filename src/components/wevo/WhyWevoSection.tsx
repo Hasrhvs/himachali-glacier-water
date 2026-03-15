@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Droplets, Zap, Heart } from "lucide-react";
+import wevoLogo from "@/assets/Wevo.png";
 
 const benefits = [
   {
@@ -37,7 +38,7 @@ const cardVariants = {
 
 const WhyWevoSection = () => {
   return (
-    <section id="why-wevo" className="wevo-section bg-background">
+    <section id="why-wevo" className="wevo-section" style={{ backgroundColor: "#e1f2fa4d" }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,9 +47,10 @@ const WhyWevoSection = () => {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-20"
         >
-          <p className="wevo-label text-wevo-ice mb-4">Benefits</p>
-          <h2 className="wevo-heading-lg text-foreground">Why WEVO?</h2>
-          <p className="wevo-body text-muted-foreground mt-4 max-w-lg mx-auto">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-tight text-foreground flex items-center justify-center gap-4">
+            <span style={{ fontFamily: "'Times New Roman', Times, serif", fontSize: '1em' }}>Why</span> <img src={wevoLogo} alt="WEVO" className="h-12 md:h-20 w-auto inline-block" /><span style={{ fontFamily: "'Times New Roman', Times, serif", fontSize: '1em' }}>?</span>
+          </h2>
+          <p className="font-body text-lg md:text-2xl text-muted-foreground mt-4 max-w-lg mx-auto leading-relaxed">
             More than hydration — it's a lifestyle upgrade backed by nature.
           </p>
         </motion.div>
@@ -70,8 +72,8 @@ const WhyWevoSection = () => {
               <div className="w-20 h-20 mx-auto mb-8 flex items-center justify-center border border-border group-hover:border-wevo-ice group-hover:bg-wevo-ice/10 transition-all duration-500 rounded-full group-hover:shadow-lg group-hover:shadow-wevo-ice/10">
                 <benefit.icon className="w-8 h-8 text-muted-foreground group-hover:text-wevo-ice transition-colors duration-500" strokeWidth={1.5} />
               </div>
-              <h3 className="wevo-heading-md text-foreground mb-4">{benefit.title}</h3>
-              <p className="wevo-body text-muted-foreground max-w-sm mx-auto text-sm leading-relaxed">
+              <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-light text-foreground mb-4">{benefit.title}</h3>
+              <p className="font-body text-lg md:text-xl text-muted-foreground max-w-sm mx-auto leading-relaxed">
                 {benefit.description}
               </p>
             </motion.div>

@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Cormorant Garamond', 'serif'],
-        body: ['Outfit', 'sans-serif'],
+        display: ["'Times New Roman'", 'Times', 'serif'],
+        body: ["'Times New Roman'", 'Times', 'serif'],
+        accent: ['Outfit', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -58,6 +59,7 @@ export default {
           snow: "hsl(var(--wevo-snow))",
           stone: "hsl(var(--wevo-stone))",
           dark: "hsl(var(--wevo-dark))",
+          black: "hsl(var(--wevo-black))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

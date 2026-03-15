@@ -56,9 +56,7 @@ const minerals = [
 
 const MineralsSection = () => {
   return (
-    <section id="minerals" className="wevo-section bg-wevo-navy relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-wevo-ice/5 rounded-full blur-[150px]" />
-
+    <section id="minerals" className="wevo-section relative overflow-hidden" style={{ backgroundColor: "#e1f2fa4d" }}>
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -67,12 +65,14 @@ const MineralsSection = () => {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-24"
         >
-          <p className="wevo-label text-wevo-ice mb-4">The Science</p>
-          <h2 className="wevo-heading-lg text-wevo-snow">
-            Purest water bottled with<br />optimum minerals
+          <h2
+            className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-tight"
+            style={{ fontFamily: "'Outfit', sans-serif", color: "#2e8ab8" }}
+          >
+            The Science
           </h2>
-          <p className="wevo-body text-wevo-glacier/60 mt-6 max-w-xl mx-auto">
-            Nature's filtration delivers the perfect mineral balance in every bottle.
+          <p className="font-body text-lg md:text-2xl text-muted-foreground mt-6 max-w-xl mx-auto leading-relaxed">
+            Nature's filtration delivers the perfect mineral balance in every can.
           </p>
         </motion.div>
 
@@ -89,18 +89,11 @@ const MineralsSection = () => {
               variants={itemVariants}
               className="text-center group"
             >
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="w-12 h-px bg-wevo-ice/40 mx-auto mb-8 group-hover:bg-wevo-ice group-hover:w-20 transition-all duration-500"
-              />
-              <p className="wevo-label text-wevo-ice mb-6">{mineral.label}</p>
-              <p className="font-display text-6xl md:text-7xl font-light text-wevo-snow mb-6 tabular-nums">
+              <p className="font-display text-3xl md:text-4xl font-light mb-6" style={{ color: "#2e8ab8" }}>{mineral.label}</p>
+              <p className="text-4xl md:text-6xl font-light text-foreground mb-6 tabular-nums tracking-tight" style={{ fontFamily: "'Times New Roman', Times, serif" }}>
                 <mineral.Stat />
               </p>
-              <p className="font-body text-sm text-wevo-glacier/50 max-w-[280px] mx-auto leading-relaxed">
+              <p className="font-body text-lg md:text-xl text-muted-foreground max-w-[320px] mx-auto leading-relaxed">
                 {mineral.description}
               </p>
             </motion.div>

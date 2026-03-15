@@ -7,22 +7,22 @@
 @layer base {
   :root {
     --background: 210 20% 98%;
-    --foreground: 210 30% 8%;
+    --foreground: 0 0% 5%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 30% 8%;
+    --card-foreground: 0 0% 5%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 30% 8%;
+    --popover-foreground: 0 0% 5%;
 
     --primary: 210 45% 15%;
     --primary-foreground: 210 20% 98%;
 
     --secondary: 205 25% 92%;
-    --secondary-foreground: 210 30% 8%;
+    --secondary-foreground: 0 0% 5%;
 
     --muted: 210 15% 94%;
-    --muted-foreground: 210 10% 45%;
+    --muted-foreground: 0 0% 25%;
 
     --accent: 200 60% 45%;
     --accent-foreground: 0 0% 100%;
@@ -43,9 +43,11 @@
     --wevo-snow: 210 20% 98%;
     --wevo-stone: 210 10% 45%;
     --wevo-dark: 210 30% 8%;
+    --wevo-black: 0 0% 5%;
 
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Outfit', sans-serif;
+    --font-display: 'Times New Roman', Times, serif;
+    --font-body: 'Times New Roman', Times, serif;
+    --font-accent: 'Outfit', sans-serif;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -74,9 +76,13 @@
     font-family: var(--font-display);
   }
 
+  p, span, a, li, td, th, label, input, textarea, button {
+    color: hsl(var(--wevo-black));
+  }
+
   ::selection {
     background: hsl(200 60% 45% / 0.2);
-    color: hsl(210 30% 8%);
+    color: hsl(0 0% 5%);
   }
 }
 
@@ -88,36 +94,40 @@
   .wevo-heading-xl {
     font-family: var(--font-display);
     @apply text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none;
+    color: hsl(var(--wevo-black));
   }
 
   .wevo-heading-lg {
     font-family: var(--font-display);
     @apply text-3xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight;
+    color: hsl(var(--wevo-black));
   }
 
   .wevo-heading-md {
     font-family: var(--font-display);
     @apply text-2xl md:text-3xl lg:text-4xl font-light tracking-tight;
+    color: hsl(var(--wevo-black));
   }
 
   .wevo-body {
     font-family: var(--font-body);
     @apply text-base md:text-lg font-light leading-relaxed;
+    color: hsl(var(--wevo-black));
   }
 
   .wevo-label {
-    font-family: var(--font-body);
+    font-family: var(--font-accent);
     @apply text-xs md:text-sm uppercase tracking-[0.2em] font-medium;
   }
 
   .wevo-stat-number {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     @apply text-4xl md:text-6xl font-light;
   }
 
   .wevo-button {
     font-family: var(--font-body);
-    @apply inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium 
+    @apply inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium
            bg-primary text-primary-foreground transition-all duration-500 ease-out;
   }
 
@@ -128,7 +138,7 @@
 
   .wevo-button-outline {
     font-family: var(--font-body);
-    @apply inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium 
+    @apply inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium
            border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-500 ease-out;
   }
 
@@ -150,6 +160,21 @@
   }
   .hover-scale:hover {
     transform: scale(1.03);
+  }
+
+  /* Light section text overrides */
+  .wevo-light-section p,
+  .wevo-light-section span,
+  .wevo-light-section h2,
+  .wevo-light-section h3 {
+    color: hsl(var(--wevo-black));
+  }
+
+  /* Dark section text overrides */
+  .wevo-dark-section p,
+  .wevo-dark-section span,
+  .wevo-dark-section a {
+    color: hsl(var(--wevo-snow));
   }
 }
 
