@@ -5,14 +5,14 @@ import can500 from "@/assets/wevo-can-500ml.png";
 const products = [
   {
     name: "STILL MINERAL WATER (24 CANS × 330ML)",
-    price: "₹1500",
+    // price: "₹1500",
     desc: "Sustainable Canned water in a resealable container. Natural still mineral water with rich mineral contents.",
     image: can330,
     amazonLink: "https://www.amazon.in",
   },
   {
     name: "STILL MINERAL WATER (24 CANS × 500ML)",
-    price: "₹2000",
+    // price: "₹2000",
     desc: "Sustainable Canned water in a resealable container. Natural still mineral water with rich mineral contents.",
     image: can500,
     amazonLink: "https://www.amazon.in",
@@ -68,7 +68,6 @@ const ProductsSection = () => {
               <h3 className="text-lg md:text-xl lg:text-2xl font-bold tracking-wide text-foreground uppercase mb-3">
                 {products[0].name}
               </h3>
-              <p className="text-base md:text-lg font-semibold text-foreground mb-3">{products[0].price}</p>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-sm mx-auto md:mx-0">
                 {products[0].desc}
               </p>
@@ -78,7 +77,7 @@ const ProductsSection = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 text-sm uppercase tracking-[0.12em] font-medium bg-foreground text-background transition-all duration-300 hover:opacity-90 mb-4"
               >
-                Buy • {products[0].price}
+                Buy
               </a>
             </motion.div>
           </motion.div>
@@ -117,7 +116,6 @@ const ProductsSection = () => {
               <h3 className="text-lg md:text-xl lg:text-2xl font-bold tracking-wide text-foreground uppercase mb-3">
                 {products[1].name}
               </h3>
-              <p className="text-base md:text-lg font-semibold text-foreground mb-3">{products[1].price}</p>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-sm mx-auto md:mx-0">
                 {products[1].desc}
               </p>
@@ -127,7 +125,7 @@ const ProductsSection = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 text-sm uppercase tracking-[0.12em] font-medium bg-foreground text-background transition-all duration-300 hover:opacity-90 mb-4"
               >
-                Buy • {products[1].price}
+                Buy
               </a>
             </motion.div>
           </motion.div>
