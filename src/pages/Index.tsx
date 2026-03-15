@@ -1,4 +1,5 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/wevo/Navbar";
 import HeroSection from "@/components/wevo/HeroSection";
 import BottleViewer from "@/components/wevo/BottleViewer";
