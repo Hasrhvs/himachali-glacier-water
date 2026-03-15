@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const links = [
     { label: "Shop", href: "#products" },
-    { label: "Contact", href: "/support" },
+    { label: "Contact", href: "#footer" },
     { label: "FAQ", href: "/faq" },
   ];
 

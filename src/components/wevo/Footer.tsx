@@ -5,7 +5,7 @@ import wevoLogo from "@/assets/wevo-white.png";
 
 const Footer = forwardRef<HTMLElement>((_, ref) => {
   return (
-    <footer ref={ref} className="relative overflow-hidden">
+    <footer ref={ref} id="footer" className="relative overflow-hidden">
       {/* CTA Banner - White background */}
       <div className="border-b border-border bg-background">
         <motion.div
