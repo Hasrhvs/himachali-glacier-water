@@ -42,7 +42,7 @@ const BottleViewer = () => {
                 <div className="w-14 h-14 flex-shrink-0 flex items-center justify-center border border-border group-hover:border-wevo-ice group-hover:bg-wevo-ice/10 transition-all duration-500 rounded-full">
                   <feature.icon className="w-6 h-6 text-muted-foreground group-hover:text-wevo-ice transition-colors duration-500" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">{feature.title}</h3>
+                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">{feature.title}</h3>
               </motion.div>
             ))}
           </motion.div>

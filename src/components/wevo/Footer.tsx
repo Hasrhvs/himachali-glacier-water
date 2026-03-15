@@ -37,7 +37,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
             <div>
               <p className="wevo-label mb-6" style={{ color: "hsl(200 60% 45%)" }}>Explore</p>
               <div className="flex flex-col gap-3">
-                <a href="#products" className="font-body text-sm transition-colors duration-300" style={{ color: "rgba(255,255,255,0.5)" }}>Shop</a>
+                <Link to="/#products" className="font-body text-sm transition-colors duration-300" style={{ color: "rgba(255,255,255,0.5)" }}>Shop</Link>
                 <a href="#footer" className="font-body text-sm transition-colors duration-300" style={{ color: "rgba(255,255,255,0.5)" }}>Contact</a>
                 <Link to="/faq" className="font-body text-sm transition-colors duration-300" style={{ color: "rgba(255,255,255,0.5)" }}>FAQ</Link>
               </div>
