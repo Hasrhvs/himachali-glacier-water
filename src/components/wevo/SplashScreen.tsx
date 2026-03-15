@@ -16,9 +16,9 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
   }, [onComplete]);
 
   const letters = [
-    { char: "W", delay: 0, font: "'Times New Roman', Times, serif" },
-    { char: "E", delay: 0.15, font: "'Times New Roman', Times, serif" },
-    { char: "V", delay: 0.3, font: "'Times New Roman', Times, serif" },
+    { char: "W ", delay: 0, font: "'Times New Roman', Times, serif" },
+    { char: "E ", delay: 0.15, font: "'Times New Roman', Times, serif" },
+    { char: "V ", delay: 0.3, font: "'Times New Roman', Times, serif" },
   ];
 
   return (
