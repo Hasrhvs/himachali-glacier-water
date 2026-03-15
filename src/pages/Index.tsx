@@ -13,6 +13,14 @@ import SplashScreen from "@/components/wevo/SplashScreen";
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
   const handleSplashComplete = useCallback(() => setShowSplash(false), []);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!showSplash && location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [showSplash, location.hash]);
 
   return (
     <div className="min-h-screen bg-background">
