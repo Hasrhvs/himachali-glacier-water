@@ -6,8 +6,8 @@ import wevoLogo from "@/assets/wevo-white.png";
 const Footer = forwardRef<HTMLElement>((_, ref) => {
   return (
     <footer ref={ref} id="footer" className="relative overflow-hidden">
-      {/* CTA Banner - Black background */}
-      <div style={{ backgroundColor: "#000000" }}>
+      {/* CTA Banner - White background */}
+      <div className="border-b border-border bg-background">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -15,9 +15,9 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
           viewport={{ once: true }}
           className="max-w-7xl mx-auto py-20 px-6 md:px-12 lg:px-20 text-center"
         >
-          <p className="wevo-label mb-6" style={{ color: "hsl(200 60% 45%)" }}>Ready to taste the difference?</p>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-light tracking-tight mb-10" style={{ color: "#ffffff" }}>Experience mountain purity.</h2>
-          <a href="#products" className="inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium border border-white/80 hover:bg-white hover:text-black transition-all duration-500" style={{ color: "#ffffff" }}>
+          <p className="wevo-label text-wevo-ice mb-6">Ready to taste the difference?</p>
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-10">Experience mountain purity.</h2>
+          <a href="#products" className="inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-500">
             Order Now
           </a>
         </motion.div>
