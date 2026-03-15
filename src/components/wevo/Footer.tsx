@@ -17,7 +17,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
         >
           <p className="wevo-label text-wevo-ice mb-6">Ready to taste the difference?</p>
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-10">Experience mountain purity.</h2>
-          <a href="#products" className="inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-500">
+          <a href="#products" className="inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium border border-foreground bg-foreground text-background hover:bg-background hover:text-foreground transition-all duration-500">
             Order Now
           </a>
         </motion.div>
