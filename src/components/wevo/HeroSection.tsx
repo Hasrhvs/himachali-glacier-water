@@ -16,7 +16,6 @@ const HeroSection = () => {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Fixed parallax background */}
       <motion.div
         style={{ y: bgY }}
         className="absolute inset-[-30%]"
@@ -31,13 +30,13 @@ const HeroSection = () => {
 
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="relative z-10 flex flex-col items-center text-center px-6 max-w-6xl mx-auto"
+        className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-6xl mx-auto"
       >
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-lg md:text-xl uppercase tracking-[0.2em] font-medium text-foreground mb-10"
+          className="text-sm sm:text-lg md:text-xl uppercase tracking-[0.2em] font-medium text-foreground mb-6 sm:mb-10"
           style={{ fontFamily: "'Outfit', sans-serif" }}
         >
           Sourced From Himalayas
@@ -47,7 +46,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-foreground whitespace-nowrap"
+          className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-foreground leading-tight sm:whitespace-nowrap"
         >
           Born where the peaks touch clouds
         </motion.h1>
@@ -56,29 +55,20 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
-          className="mt-12 max-w-2xl"
+          className="mt-8 sm:mt-12 max-w-2xl"
         >
-          <p className="font-body text-lg md:text-xl font-light leading-relaxed text-foreground/80">
+          <p className="font-body text-base sm:text-lg md:text-xl font-light leading-relaxed text-foreground/80">
             Thousands of years of natural filtration through rock & ice deliver mineral-perfect water to your hands.
           </p>
         </motion.div>
-{/* 
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.2, delay: 1.2 }}
-          className="mt-10"
-        >
-          <div className="w-16 h-px bg-wevo-ice" />
-        </motion.div> */}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.4 }}
-          className="mt-12"
+          className="mt-8 sm:mt-12"
         >
-          <a href="#products" className="inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium bg-foreground text-background transition-all duration-500 ease-out hover:opacity-90 hover-scale">
+          <a href="#products" className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 text-sm uppercase tracking-[0.15em] font-medium bg-foreground text-background transition-all duration-500 ease-out hover:opacity-90 hover-scale">
             Explore Products
           </a>
         </motion.div>
