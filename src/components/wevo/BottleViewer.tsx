@@ -21,14 +21,14 @@ const BottleViewer = () => {
   return (
     <section className="wevo-section" style={{ backgroundColor: "#e1f2fa4d" }} id="explore">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-6 md:gap-12">
           {/* Left Side - Features */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex-1 space-y-10"
+            className="flex-1 space-y-8"
           >
             {features.map((feature, i) => (
               <motion.div
@@ -37,14 +37,12 @@ const BottleViewer = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="flex items-start gap-5 group"
+                className="flex items-center gap-4 group"
               >
                 <div className="w-14 h-14 flex-shrink-0 flex items-center justify-center border border-border group-hover:border-wevo-ice group-hover:bg-wevo-ice/10 transition-all duration-500 rounded-full">
                   <feature.icon className="w-6 h-6 text-muted-foreground group-hover:text-wevo-ice transition-colors duration-500" strokeWidth={1.5} />
                 </div>
-                <div>
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">{feature.title}</h3>
-                </div>
+                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">{feature.title}</h3>
               </motion.div>
             ))}
           </motion.div>

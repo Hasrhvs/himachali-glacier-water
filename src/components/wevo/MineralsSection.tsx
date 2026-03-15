@@ -38,7 +38,7 @@ const PHStat = () => {
 
 const minerals = [
   {
-    label: "Calcium",
+    label: "CALCIUM",
     Stat: CalciumStat,
     description: "5% of the recommended daily intake of CALCIUM in one litre of WEVO water.",
   },
@@ -48,7 +48,7 @@ const minerals = [
     description: "Total Dissolved Solids of 256, which is ideal for good health and taste.",
   },
   {
-    label: "pH",
+    label: "PH",
     Stat: PHStat,
     description: "Optimum pH value makes WEVO water alkaline and supports overall health and gut health.",
   },
@@ -66,7 +66,7 @@ const MineralsSection = () => {
           className="text-center mb-24"
         >
           <h2
-            className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-tight"
+            className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight uppercase"
             style={{ fontFamily: "'Outfit', sans-serif", color: "#2e8ab8" }}
           >
             The Science
@@ -89,7 +89,12 @@ const MineralsSection = () => {
               variants={itemVariants}
               className="text-center group"
             >
-              <p className="font-display text-3xl md:text-4xl font-light mb-6" style={{ color: "#2e8ab8" }}>{mineral.label}</p>
+              <p
+                className="text-2xl md:text-3xl font-light mb-6 uppercase tracking-tight"
+                style={{ fontFamily: "'Outfit', sans-serif", color: "#2e8ab8" }}
+              >
+                {mineral.label}
+              </p>
               <p className="text-4xl md:text-6xl font-light text-foreground mb-6 tabular-nums tracking-tight" style={{ fontFamily: "'Times New Roman', Times, serif" }}>
                 <mineral.Stat />
               </p>

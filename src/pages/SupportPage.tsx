@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import {
   Accordion,
@@ -85,7 +84,7 @@ const SupportPage = () => {
                     <AccordionTrigger className="font-display text-lg md:text-xl font-normal hover:no-underline text-foreground py-6">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="font-body text-muted-foreground text-sm pb-6 leading-relaxed">
+                    <AccordionContent className="font-body text-lg md:text-xl text-muted-foreground pb-6 leading-relaxed">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -105,7 +104,7 @@ const SupportPage = () => {
             <p className="wevo-body text-muted-foreground mb-4">
               Still have questions?
             </p>
-            <a href="mailto:hello@wevo.in" className="wevo-button hover-scale">
+            <a href="mailto:wevowater@gmail.com" className="wevo-button hover-scale">
               Contact Us
             </a>
           </motion.div>
