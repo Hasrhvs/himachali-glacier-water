@@ -64,7 +64,7 @@ const OurStorySection = () => {
           className="text-center mb-24"
         >
           <h2
-            className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-tight"
+            className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight uppercase"
             style={{ fontFamily: "'Outfit', sans-serif", color: "#2e8ab8" }}
           >
             Our Story
