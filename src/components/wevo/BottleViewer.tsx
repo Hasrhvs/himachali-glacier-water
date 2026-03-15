@@ -21,7 +21,7 @@ const BottleViewer = () => {
   return (
     <section className="wevo-section" style={{ backgroundColor: "#e1f2fa4d" }} id="explore">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-6 md:gap-12">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-4 md:gap-6">
           {/* Left Side - Features */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
