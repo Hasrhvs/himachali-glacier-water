@@ -104,9 +104,9 @@ const SupportPage = () => {
             <p className="wevo-body text-muted-foreground mb-4">
               Still have questions?
             </p>
-            <a href="mailto:wevowater@gmail.com" className="wevo-button hover-scale">
-              Contact Us
-            </a>
+            <a href="mailto:wevowater@gmail.com" className="inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium border border-foreground bg-foreground text-background hover:bg-background hover:text-foreground transition-all duration-500">
+            Contact Us
+          </a>
           </motion.div>
         </div>
       </section>

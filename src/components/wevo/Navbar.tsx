@@ -14,7 +14,7 @@ const Navbar = () => {
   }, [scrollY]);
 
   const links = [
-    { label: "Shop", href: "#products" },
+    { label: "Shop", href: "/#products" },
     { label: "Contact", href: "#footer" },
     { label: "FAQ", href: "/faq" },
   ];
