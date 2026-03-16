@@ -52,21 +52,62 @@ const ProductsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Mobile: stacked layout, Desktop: side-by-side */}
-        <div className="relative flex flex-col md:flex-row items-start justify-center gap-0">
+        {/* Mobile: each product as a card; Desktop: side-by-side with cans in center */}
+        {/* Mobile layout */}
+        <div className="flex flex-col gap-12 md:hidden">
+          {products.map((product, i) => (
+            <motion.div
+              key={i}
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className="flex flex-col items-center text-center"
+            >
+              <motion.div variants={itemVariants}>
+                <h3 className="text-base sm:text-lg font-bold tracking-wide text-foreground uppercase mb-3">
+                  {product.name}
+                </h3>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 max-w-sm mx-auto">
+                  {product.desc}
+                </p>
+                <a
+                  href={product.amazonLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 py-3 text-sm uppercase tracking-[0.12em] font-medium bg-foreground text-background transition-all duration-300 hover:opacity-90 mb-6"
+                >
+                  Buy
+                </a>
+              </motion.div>
+              <motion.img
+                src={product.image}
+                alt={product.name}
+                className="w-32 sm:w-40 h-auto object-contain drop-shadow-2xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Desktop layout */}
+        <div className="hidden md:flex relative flex-row items-start justify-center gap-0">
           {/* Left product details */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="flex-1 flex flex-col justify-center md:text-left text-center md:pr-8 lg:pr-12 py-4 md:py-8"
+            className="flex-1 flex flex-col justify-center text-left pr-8 lg:pr-12 py-8"
           >
             <motion.div variants={itemVariants}>
-              <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold tracking-wide text-foreground uppercase mb-3">
+              <h3 className="text-xl lg:text-2xl font-bold tracking-wide text-foreground uppercase mb-3">
                 {products[0].name}
               </h3>
-              <p className="text-base sm:text-lg md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-sm mx-auto md:mx-0">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6 max-w-sm">
                 {products[0].desc}
               </p>
               <a
@@ -86,18 +127,18 @@ const ProductsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex-shrink-0 flex items-end justify-center gap-2 md:gap-4 py-4 md:py-8"
+            className="flex-shrink-0 flex items-end justify-center gap-4 py-8"
           >
             <motion.img
               src={can330}
               alt="WEVO 330ml Can"
-              className="w-24 sm:w-28 md:w-36 lg:w-44 h-auto object-contain drop-shadow-2xl"
+              className="w-36 lg:w-44 h-auto object-contain drop-shadow-2xl"
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             />
             <motion.img
               src={can500}
               alt="WEVO 500ml Can"
-              className="w-28 sm:w-32 md:w-40 lg:w-48 h-auto object-contain drop-shadow-2xl"
+              className="w-40 lg:w-48 h-auto object-contain drop-shadow-2xl"
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             />
           </motion.div>
@@ -108,13 +149,13 @@ const ProductsSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="flex-1 flex flex-col justify-center md:text-left text-center md:pl-8 lg:pl-12 py-4 md:py-8"
+            className="flex-1 flex flex-col justify-center text-left pl-8 lg:pl-12 py-8"
           >
             <motion.div variants={itemVariants}>
-              <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold tracking-wide text-foreground uppercase mb-3">
+              <h3 className="text-xl lg:text-2xl font-bold tracking-wide text-foreground uppercase mb-3">
                 {products[1].name}
               </h3>
-              <p className="text-base sm:text-lg md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-sm mx-auto md:mx-0">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6 max-w-sm">
                 {products[1].desc}
               </p>
               <a

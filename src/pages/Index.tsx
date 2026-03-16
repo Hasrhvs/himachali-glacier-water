@@ -11,8 +11,12 @@ import Footer from "@/components/wevo/Footer";
 import SplashScreen from "@/components/wevo/SplashScreen";
 
 const Index = () => {
-  const [showSplash, setShowSplash] = useState(true);
-  const handleSplashComplete = useCallback(() => setShowSplash(false), []);
+  const alreadySeen = sessionStorage.getItem("wevo-splash-seen") === "true";
+  const [showSplash, setShowSplash] = useState(!alreadySeen);
+  const handleSplashComplete = useCallback(() => {
+    setShowSplash(false);
+    sessionStorage.setItem("wevo-splash-seen", "true");
+  }, []);
   const location = useLocation();
 
   useEffect(() => {
