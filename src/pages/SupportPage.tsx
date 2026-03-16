@@ -55,7 +55,7 @@ const SupportPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <section className="wevo-section pt-32" style={{ backgroundColor: "#e1f2fa4d" }}>
+      <section className="wevo-section pt-32 scroll-mt-20" style={{ backgroundColor: "#e1f2fa4d" }}>
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
