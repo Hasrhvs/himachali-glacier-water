@@ -3,25 +3,28 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import wevoLogo from "@/assets/wevo-white.png";
 
-const Footer = forwardRef<HTMLElement>((_, ref) => {
+const Footer = forwardRef<HTMLElement, { hideCTA?: boolean }>((props, ref) => {
+  const { hideCTA = false } = props;
   return (
     <footer ref={ref} id="footer" className="relative overflow-hidden">
       {/* CTA Banner - White background */}
-      <div className="border-b border-border bg-background">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="max-w-7xl mx-auto py-20 px-6 md:px-12 lg:px-20 text-center"
-        >
-          <p className="wevo-label text-wevo-ice mb-6">Ready to taste the difference?</p>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-10">Experience mountain purity.</h2>
-          <a href="#products" className="inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium border border-foreground bg-foreground text-background hover:bg-background hover:text-foreground transition-all duration-500">
-            Order Now
-          </a>
-        </motion.div>
-      </div>
+      {!hideCTA && (
+        <div className="border-b border-border bg-background">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-7xl mx-auto py-20 px-6 md:px-12 lg:px-20 text-center"
+          >
+            <p className="wevo-label text-wevo-ice mb-6">Ready to taste the difference?</p>
+            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-10">Experience mountain purity.</h2>
+            <a href="#products" className="inline-flex items-center justify-center px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium border border-foreground bg-foreground text-background hover:bg-background hover:text-foreground transition-all duration-500">
+              Order Now
+            </a>
+          </motion.div>
+        </div>
+      )}
 
 
       {/* Footer bottom - Black background */}

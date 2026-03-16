@@ -110,7 +110,7 @@ const SupportPage = () => {
           </motion.div>
         </div>
       </section>
-      <Footer />
+      <Footer hideCTA />
     </div>
   );
 };
