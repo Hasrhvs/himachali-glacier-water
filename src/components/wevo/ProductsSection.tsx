@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import can330 from "@/assets/wevo-can-330ml.png";
 import can500 from "@/assets/wevo-can-500ml.png";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const products = [
   {
@@ -52,45 +53,50 @@ const ProductsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Mobile: each product as a card; Desktop: side-by-side with cans in center */}
-        {/* Mobile layout */}
-        <div className="flex flex-col gap-12 md:hidden">
-          {products.map((product, i) => (
-            <motion.div
-              key={i}
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
-              className="flex flex-col items-center text-center"
-            >
-              <motion.div variants={itemVariants}>
-                <h3 className="text-base sm:text-lg font-bold tracking-wide text-foreground uppercase mb-3">
-                  {product.name}
-                </h3>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 max-w-sm mx-auto">
-                  {product.desc}
-                </p>
-                <a
-                  href={product.amazonLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-3 text-sm uppercase tracking-[0.12em] font-medium bg-foreground text-background transition-all duration-300 hover:opacity-90 mb-6"
-                >
-                  Buy
-                </a>
-              </motion.div>
-              <motion.img
-                src={product.image}
-                alt={product.name}
-                className="w-32 sm:w-40 h-auto object-contain drop-shadow-2xl"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              />
-            </motion.div>
-          ))}
+        {/* Mobile: swipeable carousel */}
+        <div className="md:hidden">
+          <Carousel opts={{ align: "center", loop: true }} className="w-full">
+            <CarouselContent>
+              {products.map((product, i) => (
+                <CarouselItem key={i}>
+                  <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-60px" }}
+                    className="flex flex-col items-center text-center px-4"
+                  >
+                    <motion.img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-36 sm:w-44 h-auto object-contain drop-shadow-2xl mb-6"
+                      variants={itemVariants}
+                    />
+                    <motion.div variants={itemVariants}>
+                      <h3 className="text-base sm:text-lg font-bold tracking-wide text-foreground uppercase mb-3">
+                        {product.name}
+                      </h3>
+                      <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 max-w-sm mx-auto">
+                        {product.desc}
+                      </p>
+                      <a
+                        href={product.amazonLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center px-8 py-3 text-sm uppercase tracking-[0.12em] font-medium bg-foreground text-background transition-all duration-300 hover:opacity-90"
+                      >
+                        Buy
+                      </a>
+                    </motion.div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center gap-2 mt-8">
+              <CarouselPrevious className="static translate-y-0" />
+              <CarouselNext className="static translate-y-0" />
+            </div>
+          </Carousel>
         </div>
 
         {/* Desktop layout */}
