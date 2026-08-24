@@ -137,13 +137,13 @@ const ProductsSection = () => {
             <motion.img
               src={can330}
               alt="WEVO 330ml Can"
-              className="w-36 lg:w-44 h-auto object-contain drop-shadow-2xl"
+              className="w-44 lg:w-52 h-auto object-contain drop-shadow-2xl"
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             />
             <motion.img
               src={can500}
               alt="WEVO 500ml Can"
-              className="w-40 lg:w-48 h-auto object-contain drop-shadow-2xl"
+              className="w-48 lg:w-60 h-auto object-contain drop-shadow-2xl"
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             />
           </motion.div>
