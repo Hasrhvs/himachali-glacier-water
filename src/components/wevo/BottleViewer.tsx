@@ -31,19 +31,34 @@ const BottleViewer = () => {
             className="flex-1 space-y-8"
           >
             {features.map((feature, i) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="flex items-center gap-4 group"
-              >
-                <div className="w-14 h-14 flex-shrink-0 flex items-center justify-center border border-border group-hover:border-wevo-ice group-hover:bg-wevo-ice/10 transition-all duration-500 rounded-full">
-                  <feature.icon className="w-6 h-6 text-muted-foreground group-hover:text-wevo-ice transition-colors duration-500" strokeWidth={1.5} />
-                </div>
-                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">{feature.title}</h3>
-              </motion.div>
+              <div key={feature.title}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.15 }}
+                  className="flex items-center gap-4 group"
+                >
+                  <div className="w-14 h-14 flex-shrink-0 flex items-center justify-center border border-border group-hover:border-wevo-ice group-hover:bg-wevo-ice/10 transition-all duration-500 rounded-full">
+                    <feature.icon className="w-6 h-6 text-muted-foreground group-hover:text-wevo-ice transition-colors duration-500" strokeWidth={1.5} />
+                  </div>
+                  <h3
+                    className="font-display font-light leading-tight text-foreground text-2xl sm:text-[2.5rem] md:text-[3.5rem]"
+                  >
+                    {feature.title}
+                  </h3>
+                </motion.div>
+
+                {i === 1 && (
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="mt-8 h-px w-full bg-border origin-left"
+                  />
+                )}
+              </div>
             ))}
           </motion.div>
 
@@ -57,8 +72,8 @@ const BottleViewer = () => {
           >
             <motion.img
               src={can330}
-              alt="WEVO Can"
-              className="w-52 md:w-72 lg:w-80 h-auto object-contain drop-shadow-2xl"
+              alt="WEVO 330ml natural mineral water can"
+              className="w-64 md:w-[22rem] lg:w-[26rem] h-auto object-contain drop-shadow-2xl"
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ duration: 0.4 }}
             />

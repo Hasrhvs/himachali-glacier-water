@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ChevronDown } from "lucide-react";
 import heroMountains from "@/assets/hero-mountains.jpg";
 
 const HeroSection = () => {
@@ -46,7 +45,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-foreground leading-tight sm:whitespace-nowrap"
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.05] max-w-5xl mx-auto"
         >
           Born where the peaks touch clouds
         </motion.h1>
@@ -73,19 +72,6 @@ const HeroSection = () => {
           </a>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-5 h-5 text-wevo-glacier" />
-          </motion.div>
-        </motion.div>
       </motion.div>
     </section>
   );
