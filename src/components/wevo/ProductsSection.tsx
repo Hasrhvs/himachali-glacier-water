@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
-import can330 from "@/assets/wevo-can-330ml.png";
-import can500 from "@/assets/wevo-can-500ml.png";
+import can330Asset from "@/assets/wevo-can-330ml.png.asset.json";
+import can500Asset from "@/assets/wevo-can-500ml.png.asset.json";
+
+const can330 = can330Asset.url;
+const can500 = can500Asset.url;
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const products = [
