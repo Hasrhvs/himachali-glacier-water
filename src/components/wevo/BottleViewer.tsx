@@ -49,7 +49,7 @@ const BottleViewer = () => {
                   </h3>
                 </motion.div>
 
-                {i === 1 && (
+                {i < features.length - 1 && (
                   <motion.div
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
