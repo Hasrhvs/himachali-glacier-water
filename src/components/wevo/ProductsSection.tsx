@@ -68,7 +68,7 @@ const ProductsSection = () => {
                     <motion.img
                       src={product.image}
                       alt={product.name}
-                      className="w-36 sm:w-44 h-auto object-contain drop-shadow-2xl mb-6"
+                      className="w-36 sm:w-44 h-auto object-contain mb-6"
                       variants={itemVariants}
                     />
                     <motion.div variants={itemVariants}>
@@ -137,13 +137,13 @@ const ProductsSection = () => {
             <motion.img
               src={can330}
               alt="WEVO 330ml Can"
-              className="w-44 lg:w-52 h-auto object-contain drop-shadow-2xl"
+              className="w-44 lg:w-52 h-auto object-contain"
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             />
             <motion.img
               src={can500}
               alt="WEVO 500ml Can"
-              className="w-48 lg:w-60 h-auto object-contain drop-shadow-2xl"
+              className="w-48 lg:w-60 h-auto object-contain"
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             />
           </motion.div>

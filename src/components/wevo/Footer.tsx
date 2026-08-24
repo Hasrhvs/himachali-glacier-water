@@ -51,7 +51,7 @@ const Footer = forwardRef<HTMLElement, { hideCTA?: boolean }>((props, ref) => {
               <p className="wevo-label mb-6" style={{ color: "hsl(200 60% 45%)" }}>Connect</p>
               <div className="flex flex-col gap-3">
                 <a href="https://www.instagram.com/wevowater/" target="_blank" rel="noopener noreferrer" className="font-body text-sm transition-colors duration-300" style={{ color: "rgba(255,255,255,0.5)" }}>Instagram</a>
-                <a href="mailto:wevowater@gmail.com" className="font-body text-sm transition-colors duration-300" style={{ color: "rgba(255,255,255,0.5)" }}>Email</a>
+                <a href="mailto:connect@wevowater.com" className="font-body text-sm transition-colors duration-300" style={{ color: "rgba(255,255,255,0.5)" }}>Email</a>
                 <a href="https://wa.me/918074496613" target="_blank" rel="noopener noreferrer" className="font-body text-sm transition-colors duration-300" style={{ color: "rgba(255,255,255,0.5)" }}>WhatsApp</a>
               </div>
             </div>
