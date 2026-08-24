@@ -1,11 +1,7 @@
 import { motion } from "framer-motion";
-import can330Asset from "@/assets/wevo-can-330ml.png.asset.json";
-import can500Asset from "@/assets/wevo-can-500ml.png.asset.json";
+import can330 from "@/assets/wevo-can-330ml.png";
+import can500 from "@/assets/wevo-can-500ml.png";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-
-const can330 = can330Asset.url;
-const can500 = can500Asset.url;
-
 const products = [
   {
     name: "STILL MINERAL WATER (24 CANS × 330ML)",

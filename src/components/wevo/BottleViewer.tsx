@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { Recycle, Package, Droplets } from "lucide-react";
-import can330Asset from "@/assets/wevo-can-330ml.png.asset.json";
-
-const can330 = can330Asset.url;
+import can330 from "@/assets/wevo-can-330ml.png";
 
 const features = [
   {
