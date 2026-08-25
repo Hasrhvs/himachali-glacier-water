@@ -71,8 +71,8 @@ const BottleViewer = () => {
             className="flex-1 flex justify-center md:justify-end"
           >
             <motion.img
-              src={can330}
-              alt="WEVO 330ml natural mineral water can"
+              src={can500}
+              alt="WEVO 500ml natural mineral water can"
               className="w-64 md:w-[22rem] lg:w-[26rem] h-auto object-contain"
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ duration: 0.4 }}
