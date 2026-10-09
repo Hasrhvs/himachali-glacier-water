@@ -79,12 +79,17 @@ const ProductsSection = () => {
                     viewport={{ once: true, margin: "-60px" }}
                     className="flex flex-col items-center text-center px-4"
                   >
-                    <motion.img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-64 w-auto object-contain mb-6"
-                      variants={itemVariants}
-                    />
+                    <div
+                      className="mb-6"
+                      style={{ transform: `scale(${product.scale})`, transformOrigin: "bottom center" }}
+                    >
+                      <motion.img
+                        src={product.image}
+                        alt={product.name}
+                        className="h-64 w-auto object-contain"
+                        variants={itemVariants}
+                      />
+                    </div>
                     <motion.div variants={itemVariants}>
                       <h3 className="text-base sm:text-lg font-bold tracking-wide text-foreground uppercase mb-3">
                         {product.name}
