@@ -127,12 +127,17 @@ const ProductsSection = () => {
               className="flex flex-col items-center text-center"
             >
               <div className="flex h-72 lg:h-80 items-end justify-center mb-8">
-                <motion.img
-                  src={product.image}
-                  alt={product.name}
-                  className="h-full w-auto object-contain"
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                />
+                <div
+                  className="flex h-full w-auto items-end justify-center"
+                  style={{ transform: `scale(${product.scale})`, transformOrigin: "bottom center" }}
+                >
+                  <motion.img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-full w-auto object-contain"
+                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  />
+                </div>
               </div>
               <h3 className="text-lg lg:text-xl font-bold tracking-wide text-foreground uppercase mb-3">
                 {product.name}
