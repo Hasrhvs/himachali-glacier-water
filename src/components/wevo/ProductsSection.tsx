@@ -9,6 +9,8 @@ const products = [
     name: "Still Water (24 Cans × 330ml) Ringpull Lids",
     desc: "Sustainable canned water with a ringpull lid. Natural still mineral water with rich mineral contents.",
     image: ring330.url,
+    scale: 1,
+    dy: "0%",
     amazonLink:
       "https://www.amazon.in/gp/product/B0HLZ5SSLY/ref=cx_skuctr_share_ls_srb?smid=A31GAQCMBR62OQ&tag=ShopReferral_fdca4e7c-c09a-42a5-9db8-796a45b01685",
   },
@@ -16,6 +18,8 @@ const products = [
     name: "Still Water (24 Cans × 330ml) Resealable Lid",
     desc: "Sustainable canned water in a resealable container. Natural still mineral water with rich mineral contents.",
     image: reseal330.url,
+    scale: 1,
+    dy: "0%",
     amazonLink:
       "https://www.amazon.in/gp/product/B0HLYZRMZR/ref=cx_skuctr_share_ls_srb?smid=A31GAQCMBR62OQ&tag=ShopReferral_3b852625-e6fd-43b2-a1b5-fd3224c3aa04&th=1",
   },
@@ -23,6 +27,8 @@ const products = [
     name: "Still Water (24 Cans × 500ml) Resealable Lids",
     desc: "Sustainable canned water in a resealable container. Natural still mineral water with rich mineral contents.",
     image: reseal500.url,
+    scale: 1.12,
+    dy: "10%",
     amazonLink:
       "https://www.amazon.in/gp/product/B0HLZ7C6VW/ref=cx_skuctr_share_ls_srb?smid=A31GAQCMBR62OQ&tag=ShopReferral_61623416-054c-4476-b0b1-b2450343a605&th=1",
   },
@@ -76,12 +82,17 @@ const ProductsSection = () => {
                     viewport={{ once: true, margin: "-60px" }}
                     className="flex flex-col items-center text-center px-4"
                   >
-                    <motion.img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-64 w-auto object-contain mb-6"
-                      variants={itemVariants}
-                    />
+                    <div
+                      className="mb-6"
+                      style={{ transform: `scale(${product.scale})`, transformOrigin: "bottom center" }}
+                    >
+                      <motion.img
+                        src={product.image}
+                        alt={product.name}
+                        className="h-64 w-auto object-contain"
+                        variants={itemVariants}
+                      />
+                    </div>
                     <motion.div variants={itemVariants}>
                       <h3 className="text-base sm:text-lg font-bold tracking-wide text-foreground uppercase mb-3">
                         {product.name}
@@ -124,12 +135,17 @@ const ProductsSection = () => {
               className="flex flex-col items-center text-center"
             >
               <div className="flex h-72 lg:h-80 items-end justify-center mb-8">
-                <motion.img
-                  src={product.image}
-                  alt={product.name}
-                  className="h-full w-auto object-contain"
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                />
+                <div
+                  className="flex h-full w-auto items-end justify-center"
+                  style={{ transform: `translateY(${product.dy}) scale(${product.scale})`, transformOrigin: "bottom center" }}
+                >
+                  <motion.img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-full w-auto object-contain"
+                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  />
+                </div>
               </div>
               <h3 className="text-lg lg:text-xl font-bold tracking-wide text-foreground uppercase mb-3">
                 {product.name}
