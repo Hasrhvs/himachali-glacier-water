@@ -28,7 +28,7 @@ const products = [
     desc: "Sustainable canned water in a resealable container. Natural still mineral water with rich mineral contents.",
     image: reseal500.url,
     scale: 1.12,
-    dy: "8%",
+    dy: "10%",
     amazonLink:
       "https://www.amazon.in/gp/product/B0HLZ7C6VW/ref=cx_skuctr_share_ls_srb?smid=A31GAQCMBR62OQ&tag=ShopReferral_61623416-054c-4476-b0b1-b2450343a605&th=1",
   },
@@ -84,7 +84,7 @@ const ProductsSection = () => {
                   >
                     <div
                       className="mb-6"
-                      style={{ transform: `translateY(${product.dy}) scale(${product.scale})`, transformOrigin: "bottom center" }}
+                      style={{ transform: `scale(${product.scale})`, transformOrigin: "bottom center" }}
                     >
                       <motion.img
                         src={product.image}
