@@ -2,18 +2,28 @@ import { motion } from "framer-motion";
 import can330 from "@/assets/wevo-can-330ml.png";
 import can500 from "@/assets/wevo-can-500ml.png";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+
 const products = [
   {
-    name: "STILL MINERAL WATER (24 CANS × 330ML)",
-    desc: "Sustainable Canned water in a resealable container. Natural still mineral water with rich mineral contents.",
+    name: "Still Water (24 Cans × 330ml) Ringpull Lids",
+    desc: "Sustainable canned water with a ringpull lid. Natural still mineral water with rich mineral contents.",
     image: can330,
-    amazonLink: "https://www.amazon.in",
+    amazonLink:
+      "https://www.amazon.in/gp/product/B0HLZ5SSLY/ref=cx_skuctr_share_ls_srb?smid=A31GAQCMBR62OQ&tag=ShopReferral_fdca4e7c-c09a-42a5-9db8-796a45b01685",
   },
   {
-    name: "STILL MINERAL WATER (24 CANS × 500ML)",
-    desc: "Sustainable Canned water in a resealable container. Natural still mineral water with rich mineral contents.",
+    name: "Still Water (24 Cans × 330ml) Resealable Lid",
+    desc: "Sustainable canned water in a resealable container. Natural still mineral water with rich mineral contents.",
+    image: can330,
+    amazonLink:
+      "https://www.amazon.in/gp/product/B0HLYZRMZR/ref=cx_skuctr_share_ls_srb?smid=A31GAQCMBR62OQ&tag=ShopReferral_3b852625-e6fd-43b2-a1b5-fd3224c3aa04&th=1",
+  },
+  {
+    name: "Still Water (24 Cans × 500ml) Resealable Lids",
+    desc: "Sustainable canned water in a resealable container. Natural still mineral water with rich mineral contents.",
     image: can500,
-    amazonLink: "https://www.amazon.in",
+    amazonLink:
+      "https://www.amazon.in/gp/product/B0HLZ7C6VW/ref=cx_skuctr_share_ls_srb?smid=A31GAQCMBR62OQ&tag=ShopReferral_61623416-054c-4476-b0b1-b2450343a605&th=1",
   },
 ];
 
@@ -52,7 +62,7 @@ const ProductsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Mobile: swipeable carousel */}
+        {/* Mobile: swipeable carousel, one product at a time, image above details */}
         <div className="md:hidden">
           <Carousel opts={{ align: "center", loop: true }} className="w-full">
             <CarouselContent>
@@ -68,7 +78,7 @@ const ProductsSection = () => {
                     <motion.img
                       src={product.image}
                       alt={product.name}
-                      className="w-36 sm:w-44 h-auto object-contain mb-6"
+                      className="h-64 w-auto object-contain mb-6"
                       variants={itemVariants}
                     />
                     <motion.div variants={itemVariants}>
@@ -98,82 +108,45 @@ const ProductsSection = () => {
           </Carousel>
         </div>
 
-        {/* Desktop layout */}
-        <div className="hidden md:flex relative flex-row items-start justify-center gap-0">
-          {/* Left product details */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            className="flex-1 flex flex-col justify-center text-left pr-8 lg:pr-12 py-8"
-          >
-            <motion.div variants={itemVariants}>
-              <h3 className="text-xl lg:text-2xl font-bold tracking-wide text-foreground uppercase mb-3">
-                {products[0].name}
+        {/* Desktop: three product cards, image on top with details below */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="hidden md:grid grid-cols-3 gap-8 lg:gap-12 items-stretch"
+        >
+          {products.map((product, i) => (
+            <motion.div
+              key={i}
+              variants={itemVariants}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="flex h-72 lg:h-80 items-end justify-center mb-8">
+                <motion.img
+                  src={product.image}
+                  alt={product.name}
+                  className="h-full w-auto object-contain"
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                />
+              </div>
+              <h3 className="text-lg lg:text-xl font-bold tracking-wide text-foreground uppercase mb-3">
+                {product.name}
               </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6 max-w-sm">
-                {products[0].desc}
+              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed mb-6 max-w-xs mx-auto">
+                {product.desc}
               </p>
               <a
-                href={products[0].amazonLink}
+                href={product.amazonLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3 text-sm uppercase tracking-[0.12em] font-medium bg-foreground text-background transition-all duration-300 hover:opacity-90 mb-4"
+                className="mt-auto inline-flex items-center justify-center px-8 py-3 text-sm uppercase tracking-[0.12em] font-medium bg-foreground text-background transition-all duration-300 hover:opacity-90"
               >
                 Buy
               </a>
             </motion.div>
-          </motion.div>
-
-          {/* Center cans */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="flex-shrink-0 flex items-end justify-center gap-4 py-8"
-          >
-            <motion.img
-              src={can330}
-              alt="WEVO 330ml Can"
-              className="w-44 lg:w-52 h-auto object-contain"
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            />
-            <motion.img
-              src={can500}
-              alt="WEVO 500ml Can"
-              className="w-48 lg:w-60 h-auto object-contain"
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            />
-          </motion.div>
-
-          {/* Right product details */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            className="flex-1 flex flex-col justify-center text-left pl-8 lg:pl-12 py-8"
-          >
-            <motion.div variants={itemVariants}>
-              <h3 className="text-xl lg:text-2xl font-bold tracking-wide text-foreground uppercase mb-3">
-                {products[1].name}
-              </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6 max-w-sm">
-                {products[1].desc}
-              </p>
-              <a
-                href={products[1].amazonLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3 text-sm uppercase tracking-[0.12em] font-medium bg-foreground text-background transition-all duration-300 hover:opacity-90 mb-4"
-              >
-                Buy
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
