@@ -1,27 +1,28 @@
 import { motion } from "framer-motion";
-import can330 from "@/assets/wevo-can-330ml.png";
-import can500 from "@/assets/wevo-can-500ml.png";
+import ring330 from "@/assets/24_cans_330ml_Ringpull_Lids.png.asset.json";
+import reseal330 from "@/assets/24_cans_330ml_Resealable_Lids.png.asset.json";
+import reseal500 from "@/assets/24_cans_500ml_Resealable_Lids.png.asset.json";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const products = [
   {
     name: "Still Water (24 Cans × 330ml) Ringpull Lids",
     desc: "Sustainable canned water with a ringpull lid. Natural still mineral water with rich mineral contents.",
-    image: can330,
+    image: ring330.url,
     amazonLink:
       "https://www.amazon.in/gp/product/B0HLZ5SSLY/ref=cx_skuctr_share_ls_srb?smid=A31GAQCMBR62OQ&tag=ShopReferral_fdca4e7c-c09a-42a5-9db8-796a45b01685",
   },
   {
     name: "Still Water (24 Cans × 330ml) Resealable Lid",
     desc: "Sustainable canned water in a resealable container. Natural still mineral water with rich mineral contents.",
-    image: can330,
+    image: reseal330.url,
     amazonLink:
       "https://www.amazon.in/gp/product/B0HLYZRMZR/ref=cx_skuctr_share_ls_srb?smid=A31GAQCMBR62OQ&tag=ShopReferral_3b852625-e6fd-43b2-a1b5-fd3224c3aa04&th=1",
   },
   {
     name: "Still Water (24 Cans × 500ml) Resealable Lids",
     desc: "Sustainable canned water in a resealable container. Natural still mineral water with rich mineral contents.",
-    image: can500,
+    image: reseal500.url,
     amazonLink:
       "https://www.amazon.in/gp/product/B0HLZ7C6VW/ref=cx_skuctr_share_ls_srb?smid=A31GAQCMBR62OQ&tag=ShopReferral_61623416-054c-4476-b0b1-b2450343a605&th=1",
   },
